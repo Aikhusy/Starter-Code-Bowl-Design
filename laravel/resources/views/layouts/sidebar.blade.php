@@ -12,9 +12,12 @@
             <li class="nav-item dropdown">
               <a href="{{route('home')}}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown">
-              <a href="{{route('users.index')}}" class="nav-link"><i class="fas fa-table"></i><span>User List</span></a>
-            </li>
+            @can('index-users')
+                <li class="nav-item dropdown">
+                  <a href="{{route('users.index')}}" class="nav-link"><i class="fas fa-table"></i><span>User List</span></a>
+                </li>
+            @endcan
+            
         @show
         
 

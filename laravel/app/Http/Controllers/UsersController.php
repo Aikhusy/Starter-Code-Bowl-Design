@@ -6,6 +6,7 @@ use App\Models\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 
 class UsersController extends Controller
 {
@@ -15,6 +16,10 @@ class UsersController extends Controller
     public function index(Request $request)
     {
         //
+
+        if (Gate::denies('index-users')){
+            abort(403,'Mau Liat Apa Ngab???');
+        }
         $users = DB::table('users')
             ->when($request->input('search'), function ($query, $search) {
                 $query->where('name', 'like', "%" . $search . "%")
