@@ -54,7 +54,7 @@
                 </div>
                 </div>
                 <div class="card">
-                    <form method="post" class="needs-validation" novalidate="" action="{{route('user-profile-information.update')}}">
+                    <form method="post" class="needs-validation" novalidate="" action="{{route('user-password.update')}}">
                         @csrf
                         @method('PUT')
                         <div class="card-header">
@@ -62,50 +62,53 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                            <div class="form-group col-md-12 col-12">
-                                <label>Name</label>
-                                <input type="text" name="name" class="form-control @error('name','updateProfileInformation') is-invalid @enderror" value="{{auth()->user()->name}}" required="">
-                                @error('name','updateProfileInformation')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>
-                                @enderror
-                            </div>
-                            </div>
-                            <div class="row">
-                            <div class="form-group col-md-7 col-12">
-                                <label>Email</label>
-                                <input type="email" name="email" class="form-control @error('email','updateProfileInformation') is-invalid @enderror" value="{{auth()->user()->email}}" required="">
-                                @error('email','updateProfileInformation')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-5 col-12">
-                                <label>Phone</label>
-                                <input type="tel" name="phone" class="form-control @error('phone','updateProfileInformation') is-invalid @enderror" value="{{auth()->user()->phone}}">
-                                @error('phone','updateProfileInformation')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>
-                                @enderror
-                            </div>
+                                <div class="form-group">
+                                    <label for="current_password">Current Password</label>
+                                    <input id="current_password" type="password"
+                                        class="form-control @error('current_password','updatePassword')
+                                        is-invalid
+                                    @enderror"
+                                        name="current_password" tabindex="2">
+                                    @error('current_password','updatePassword')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
                             <div class="row">
-                            <div class="form-group col-12">
-                                <label>Bio</label>
-                                <textarea name="bio" class="form-control summernote-simple">{{auth()->user()->bio}}</textarea>
-                                @error('bio')
-                                    <div class="invalid-feedback">
-                                        {{$message}}
-                                    </div>
-                                @enderror
+                                <div class="form-group">
+                                    <label for="password">New Password</label>
+                                    <input id="password" type="password"
+                                        class="form-control @error('password','updatePassword')
+                                        is-invalid
+                                    @enderror"
+                                        name="password" tabindex="2">
+                                    @error('password','updatePassword')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="password_confirmation">Password Confirmation</label>
+                                    <input id="password_confirmation" type="password"
+                                        class="form-control @error('password_confirmation')
+                                        is-invalid
+                                    @enderror"
+                                        name="password_confirmation" tabindex="2">
+                                    @error('password_confirmation','updatePassword')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                        <button class="btn btn-primary">Save Changes</button>
+                        <button class="btn btn-primary">Change Password</button>
                         </div>
                     </form>
                 </div>
