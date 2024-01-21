@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
 
         User::create([
             'name'=> 'superadmin',
