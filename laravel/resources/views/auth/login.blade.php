@@ -1,5 +1,7 @@
 @extends('layouts.custom')
 
+@section('title','Login')
+
 @section('content')
 
 <div class="row">
