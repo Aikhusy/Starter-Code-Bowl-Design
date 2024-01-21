@@ -13,7 +13,7 @@
         <div class="card-header"><h4>Register</h4></div>
 
         <div class="card-body">
-          <form method="POST">
+          <form method="POST" >
             @csrf
             <div class="row">
 
