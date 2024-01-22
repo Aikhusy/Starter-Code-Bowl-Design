@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/admin', function () {
+    return view('layouts.adminSkeleton');
 });
+
+Route::get('/', function () {
+    return view('auth.login');
+})->name('login');
+
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
+Route::get('/forgot', function () {
+    return view('auth.forgot');
+})->name('forgot');
+
+Route::get('/verify', function () {
+    return view('auth.verify');
+})->name('verify');
+
+
+
